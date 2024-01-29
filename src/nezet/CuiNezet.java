@@ -2,30 +2,19 @@ package nezet;
 
 import java.util.Scanner;
 
-public class CuiNezet {
+public class CuiNezet extends Nezet {
 
     private static final Scanner sc = new Scanner(System.in);
-    private static final String SEP = System.lineSeparator();
 
-    private void konzolra(String ki) {
+    @Override
+    protected void nezetbeIr(String ki) {
         System.out.print(ki);
     }
 
-    public void leirasMegjelenito(String ki) {
-        konzolra(ki + SEP);
-    }
-
-    public void feladatMegjelenito(String ki) {
-        konzolra(ki + SEP);
-    }
-
     //válsztás
-    public int valasztasMegjelenito(String ki) {
-        konzolra(ki);
+    @Override
+    public int valasztas(String ki) {
+        nezetbeIr(ki);
         return sc.nextInt();
-    }
-
-    public void eredmenyMegjelenito(String ki) {
-        konzolra(ki + SEP);
     }
 }

@@ -1,45 +1,27 @@
 package main;
 
-import modell.Lada;
+import modell.Feladat;
 import nezet.CuiNezet;
+import nezet.JopNezet;
+import nezet.Nezet;
+import vezerlo.CuiVezerlo;
+import vezerlo.JopVezerlo;
 
 public class Logikai_Program {
 
-    private Lada[] ladak;
-
     public static void main(String[] args) {
-        Logikai_Program lp = new Logikai_Program();
-        lp.feladatok();
+        new Logikai_Program().init();
 
     }
 
-    private void feladatok() {
-        ladak = new Lada[3];
-        ladak[0] = new Lada("Arany", "Én rejtem a kincset!", false);
-        ladak[1] = new Lada("Ezüst", "Nem én rejtem a kincset!", true);
-        ladak[2] = new Lada("Bronz", "Az arany hazudik!", false);
-        CuiNezet nezet = new CuiNezet();
+    private void init() {
+        Nezet nezet;
+        Feladat model = new Feladat();
 
-        nezet.leirasMegjelenito("CSak 1 igaz");
-
-        for (Lada lada : ladak) {
-            String anyag = lada.getAnyag() + ": ";
-            String felirat = lada.getFelirat();
-            nezet.feladatMegjelenito(anyag + felirat);
-        }
-
-        int valasztas = nezet.valasztasMegjelenito("melyik az: ");
-
-        Lada lada = ladak[valasztas];
-        String str = "";
-        //20perc
-        if (lada.isKincs()) {
-            str = "talált a kincset a(z) ";
-        } else {
-            str = "nem talált a a kincset nem a(z) ";
-        }
-        nezet.eredmenyMegjelenito(str + lada.getAnyag() + " rejti");
+//        nezet = new CuiNezet();
+//        new CuiVezerlo(model, (CuiNezet) nezet);
+        nezet = new JopNezet();
+        new JopVezerlo(model, (JopNezet) nezet);
 
     }
-
 }
