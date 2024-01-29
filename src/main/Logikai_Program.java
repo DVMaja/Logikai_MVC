@@ -22,6 +22,8 @@ public class Logikai_Program {
 //        new CuiVezerlo(model, (CuiNezet) nezet);
         nezet = new JopNezet();
         new JopVezerlo(model, (JopNezet) nezet);
+        
+        //Eseményvezérlő 
 
     }
 }
